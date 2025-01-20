@@ -20,9 +20,9 @@ O **Gerenciador de Compras** é uma aplicação simples desenvolvida para ajudar
    ```bash
    python main.py
 
-##Tecnologias utilizadas
+## Tecnologias utilizadas
   - Python: Linguagem de programação principal.
   - JSON: Para salvar e carregar a lista de compras.
 
-##Contribuições
+## Contribuições
 Sinta-se à vontade para contribuir com melhorias para o projeto! Para isso, basta fazer um fork do repositório, criar uma branch com suas modificações e enviar um pull request.
