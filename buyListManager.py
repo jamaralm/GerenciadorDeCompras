@@ -1,12 +1,15 @@
 import json
+import os
+
 buyList = []
+filePath = './GerenciadorDeCompras/buyList.json'
 
 def add_item(item, itemCode):
-    filePath = 'buyList.json'
-
     try:
-        with open(filePath, 'r') as file:
-            buyList = json.load(file)
+        if os.path.exists(filePath):
+            # Load existing data
+            with open(filePath, "r", encoding="utf-8") as f:
+                buyList = json.load(f)
     except FileNotFoundError:
         buyList = []
     except json.JSONDecodeError:
@@ -21,11 +24,11 @@ def add_item(item, itemCode):
 def remove_item(itemCodeInput):
     global buyList
 
-    file_path = 'buyList.json'
-
     try:
-        with open(file_path, 'r') as file:
-            buyList = json.load(file)
+        if os.path.exists(filePath):
+            # Load existing data
+            with open(filePath, "r", encoding="utf-8") as f:
+                buyList = json.load(f)
     except FileNotFoundError:
         buyList = []
     except json.JSONDecodeError:
@@ -38,16 +41,15 @@ def remove_item(itemCodeInput):
         return
 
     # Salvar a lista atualizada de volta no arquivo JSON
-    with open(file_path, 'w') as file:
+    with open(filePath, 'w') as file:
         json.dump(updated_buyList, file, indent=2)
 
 def show_list():
-
-    file_path = 'buyList.json'
-
     try:
-        with open(file_path, 'r') as file:
-            buyList = json.load(file)
+        if os.path.exists(filePath):
+            # Load existing data
+            with open(filePath, "r", encoding="utf-8") as f:
+                buyList = json.load(f)
     except FileNotFoundError:
         buyList = []
     except json.JSONDecodeError:
